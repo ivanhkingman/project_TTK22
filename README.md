@@ -73,5 +73,7 @@ The maneuver should now be executed and can be viewed in the Neptus console
 
 Source and documentation for the original LSTS libraries can be found at https://github.com/LSTS and https://www.lsts.pt/docs/
 
-Documentation specific to this project includes the IMC message bottomUpSearch and its implementation in DUNE
+Documentation specific to this project includes the IMC message bottomUpSearch and its implementation in DUNE. Both are available in the project wiki, or can be generated from the IMC or Dune forked repositories.
+
+To generate IMC message documentation for IMC::BottomUpSearch
 
