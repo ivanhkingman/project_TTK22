@@ -31,7 +31,7 @@ git clone https://github.com/ivanhkingman/imc
 Clone the LSTS/IMCjava forked repository
 
 ```bash
-git clone https://github.com/ivanhkingman/imc
+git clone https://github.com/ivanhkingman/imcjava
 ```
 Compile
 
@@ -40,7 +40,7 @@ Compile
 Clone the LSTS/neptus forked repository
 
 ```bash
-git clone https://github.com/ivanhkingman/imc
+git clone https://github.com/ivanhkingman/neptus
 ```
 Compile
 
