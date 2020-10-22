@@ -17,6 +17,15 @@ Clone the LSTS/Dune forked repository
 ```bash
 git clone https://github.com/ivanhkingman/dune
 ```
+Compile DUNE (may take some time)
+```bash
+cd dune
+mkdir build
+cd build
+cmake ..
+make
+```
+
 
 ### IMC
 
@@ -42,7 +51,15 @@ Clone the LSTS/neptus forked repository
 ```bash
 git clone https://github.com/ivanhkingman/neptus
 ```
-Compile
+Note: If you get the following error message
+
+```bash
+error: RPC failed; curl 56 GnuTLS recv error (-24): Decryption has failed.
+fatal: The remote end hung up unexpectedly
+fatal: early EOF
+fatal: index-pack failed
+```
+try using a different internet connection or a VPN
 
 Verify
 
@@ -51,21 +68,36 @@ Verify
 For a minimum working example, clone the example from this repository
 
 ```bash
-git clone https://github.com/ivanhkingman/imc
+git clone https://github.com/ivanhkingman/project_TTK22
 ```
 
-Buil the project by doing the following
+Build the project by doing the following
 
 ```bash
+cd project_TTK22
 mkdir build
 cd build
 cmake ..
 make
 ```
-Execute the example by running
+In a seperate terminal, start an instance of DUNE, running the lauv-xplore-1:
+```bash
+cd path-to-dune
+cd build
+./dune -c lauv-xplore-1 -p Simulation
+```
+Open Neptus GUI. This can be done from a new terminal by running
+```bash
+cd path-to-neptus/develop
+./neptus.sh
+```
+Then, open any Neptus console
+
+Navigate back to the example and execute it by running
 
 ```bash
-./example
+cd path-to-project_TTK22/build
+./example 2 goto 6001
 ```
 The maneuver should now be executed and can be viewed in the Neptus console
 
