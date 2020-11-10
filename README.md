@@ -45,10 +45,10 @@ make
 
 ### NEPTUS
 
-Clone the official LSTS/neptus repository. The "develop" branch is sufficient
+Clone the official LSTS/neptus repository. Make sure to clone the courses/ttk22 branch
 
 ```bash
-git clone --single-branch --branch develop https://github.com/LSTS/neptus
+git clone --single-branch --branch courses/ttk22 https://github.com/LSTS/neptus
 ```
 Note: If you get the following error message
 
@@ -96,7 +96,7 @@ Compile neptus
 
 ```bash
 cd path_to_neptus
-./gradlew distTar
+ant
 ```
 
 
