@@ -10,23 +10,6 @@ This project integrates a new maneuver in the existing LSTS software toolchain. 
 git, cmake, g++, ant
 
 
-### DUNE
-
-Clone the LSTS/Dune forked repository
-
-```bash
-git clone https://github.com/ivanhkingman/dune
-```
-Compile DUNE (may take some time)
-```bash
-cd dune
-mkdir build
-cd build
-cmake ..
-make
-```
-
-
 ### IMC
 
 Clone the LTS/IMC forked repository
@@ -35,7 +18,32 @@ Clone the LTS/IMC forked repository
 git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman/imc
 ```
 
-### IMCJAVA
+
+### DUNE
+
+Clone the LSTS/Dune forked repository
+
+```bash
+git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman/dune
+```
+
+Create a link to IMC and compile IMC library
+```bash
+cd dune
+mkdir build
+cd build
+ln -s path_to_imc IMC
+make imc
+```
+
+Compile DUNE from build folder (may take some time)
+```bash
+cmake ..
+make
+```
+
+
+### IMCJAVA (optional)
 
 Clone the LSTS/IMCjava forked repository
 
