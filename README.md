@@ -45,7 +45,7 @@ make
 
 ### NEPTUS
 
-Clone the official LSTS/neptus repository. Make sure to clone the courses/ttk22 branch
+Clone the official LSTS/neptus repository. Make sure to clone the courses/ttk22 branch.
 
 ```bash
 git clone --single-branch --branch courses/ttk22 https://github.com/LSTS/neptus

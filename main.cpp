@@ -9,7 +9,8 @@
 #define LAUVXPLORE1 (30)
 using namespace IMC;
 
-// This program creates a planSpecification with a maneuver of bottomUpSearch, and sends the plan to lauv-xplore-1
+// This program creates an example planSpecification with a maneuver, specified by the input arguments.
+// The plan specification is then sent locally on a port specified by the second input argument
 
 int main(int argc, char** argv ) {
 
@@ -19,7 +20,7 @@ int main(int argc, char** argv ) {
     // Plan specification                                      
     PlanSpecification planSpecification;
     planSpecification.setTimeStamp(1.5628304294681385E9);                    
-    planSpecification.setDestination(31);
+    planSpecification.setDestination(30);
     planSpecification.setSource(16652);
     planSpecification.setSourceEntity(44);
     planSpecification.setDestinationEntity(255);
@@ -56,6 +57,7 @@ int main(int argc, char** argv ) {
     bottomUpSearch.z_units = 1;
     bottomUpSearch.speed = 1000;
     bottomUpSearch.speed_units = 1;
+    bottomUpSearch.pitch_thresh = 1;
     bottomUpSearch.thrust_duration = 2;
     bottomUpSearch.custom = "";
 
@@ -118,7 +120,7 @@ int main(int argc, char** argv ) {
     DatagramSocket socket(6001, localhost, true, true);
     socket.sendTo(buffer, size, localhost);
 
-    std::cout << "Sent " << maneuverString << "message to LAUV-XPLORE-1" << std::endl;
+    std::cout << "Sent " << maneuverString << " as part of a plan specification to 127.0.0.1 on port "<< portNumber << std::endl;
 
     return 0;
 }
