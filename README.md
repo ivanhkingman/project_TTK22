@@ -128,7 +128,7 @@ cd build
 Open Neptus GUI. This can be done from a new terminal by running
 ```bash
 cd path-to-neptus
-./neptus
+./neptus.sh
 ```
 Then, open any Neptus console
 
@@ -136,11 +136,11 @@ Navigate back to the example and execute it by sending a goto message as part of
 
 ```bash
 cd path-to-project_TTK22/build
-./example 2 goto 6001
+./example 2 bottomUpSearch 6001
 ```
 This sends the plan to the Neptus. If the plan does not appear, right click the plan view panel at click **Reload Panel**. Forward the plan to lauv-xplore-1 by selecting the vehicle, then selecting the plan, then clicking **Send Selected Plan** (blue arrow). Execute the plan by clicking **Start Plan** (green, runny man).
 
-Sit back and enjoy the show as lauv-xplore-1 executes a bottom up search.
+Note: Not working at the moment, as vehicle goes into teleoperation mode :(
 
 ## Documentation
 
