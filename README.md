@@ -15,7 +15,7 @@ git, cmake, g++, ant
 Clone the LTS/IMC forked repository
 
 ```bash
-git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman/imc
+git clone --single-branch --branch bottomUpSearch https://github.com/ivanhkingman/imc
 ```
 
 
@@ -24,7 +24,7 @@ git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman
 Clone the LSTS/Dune forked repository
 
 ```bash
-git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman/dune
+git clone --single-branch --branch bottomUpSearch https://github.com/ivanhkingman/dune
 ```
 
 Create a link to IMC and compile IMC library
@@ -43,20 +43,12 @@ make
 ```
 
 
-### IMCJAVA (optional)
-
-Clone the LSTS/IMCjava forked repository
-
-```bash
-git clone https://github.com/ivanhkingman/imcjava
-```
-
 ### NEPTUS
 
-Clone the LSTS/neptus forked repository
+Clone the official LSTS/neptus repository. The "develop" branch is sufficient
 
 ```bash
-git clone https://github.com/ivanhkingman/neptus
+git clone --single-branch --branch develop https://github.com/LSTS/neptus
 ```
 Note: If you get the following error message
 
@@ -68,15 +60,55 @@ fatal: index-pack failed
 ```
 try using a different internet connection or a VPN.
 
-Compile Neptus with Ant
+Before compiling Neptus, however, we need to synchronize with IMC
+
+### Synchronize IMC with Neptus
+
+Clone the official LSTS/imcjava. Cloning the master branch is sufficient, but cloning the entire repository is also fine.
 
 ```bash
-cd neptus
-ant
+git clone https://github.com/LSTS/imcjava
+```
+
+alternatively
+
+```bash
+git clone --single-branch --branch master https://github.com/LSTS/imcjava
+```
+
+Open the file settings.gradle. Line 10 should read
+
+`gradle.ext.imcFilePath = '../imc`
+
+Make sure the path matches the relative path to the IMC folder. (Simply copy the above line if no changes has been made)
+
+Update with IMC and generate libimc.jar file.
+
+```bash
+cd imcjava
+./gradlew updateIMCFromFolder
+./gradlew dist
+```
+
+Copy the generated library file **libimc-6.0.0.jar** located in `imcjava/dist/` and paste it into neptus library folder `neptus/lib/`
+
+Compile neptus
+
+```bash
+cd path_to_neptus
+./gradlew distTar
 ```
 
 
-## Usage
+## Verify
+
+With IMC, Dune, Neptus and imcjava, the setup should now be complete. The folder structure should look something like this:
+
+- workspace
+    - dune
+    - neptus
+    - imc
+    - imcjava
 
 For a minimum working example, clone the example from this repository
 
@@ -102,17 +134,19 @@ cd build
 Open Neptus GUI. This can be done from a new terminal by running
 ```bash
 cd path-to-neptus
-./neptus.sh
+./neptus
 ```
 Then, open any Neptus console
 
-Navigate back to the example and execute it by running
+Navigate back to the example and execute it by sending a goto message as part of a plan on port 6001 (the port at which Neptus recieves UDP-messages)
 
 ```bash
 cd path-to-project_TTK22/build
 ./example 2 goto 6001
 ```
-The maneuver should now be executed and can be viewed in the Neptus console
+This sends the plan to the Neptus. If the plan does not appear, right click the plan view panel at click **Reload Panel**. Forward the plan to lauv-xplore-1 by selecting the vehicle, then selecting the plan, then clicking **Send Selected Plan** (blue arrow). Execute the plan by clicking **Start Plan** (green, runny man).
+
+Sit back and enjoy the show as lauv-xplore-1 executes a bottom up search.
 
 ## Documentation
 

@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: 2623d06a3034125fad12036ee6202a64                            *
+// IMC XML MD5: 2f113851e9bcef28e4c64254b0c8597c                            *
 //***************************************************************************
 
 #ifndef IMC_BOTTOMUPSEARCH_HPP_INCLUDED_
@@ -65,6 +65,12 @@ namespace IMC
     double pitch;
     //! Yaw.
     double yaw;
+    //! Pitch Threshold.
+    double pitch_thresh;
+    //! RPM.
+    float rpm;
+    //! Thrust Duration.
+    uint16_t thrust_duration;
     //! Custom settings for maneuver.
     std::string custom;
 
@@ -105,6 +111,9 @@ namespace IMC
       roll = 0;
       pitch = 0;
       yaw = 0;
+      pitch_thresh = 0;
+      rpm = 0;
+      thrust_duration = 0;
       custom.clear();
     }
 
@@ -122,6 +131,9 @@ namespace IMC
       if (roll != other__.roll) return false;
       if (pitch != other__.pitch) return false;
       if (yaw != other__.yaw) return false;
+      if (pitch_thresh != other__.pitch_thresh) return false;
+      if (rpm != other__.rpm) return false;
+      if (thrust_duration != other__.thrust_duration) return false;
       if (custom != other__.custom) return false;
       return true;
     }
@@ -140,6 +152,9 @@ namespace IMC
       ptr__ += IMC::serialize(roll, ptr__);
       ptr__ += IMC::serialize(pitch, ptr__);
       ptr__ += IMC::serialize(yaw, ptr__);
+      ptr__ += IMC::serialize(pitch_thresh, ptr__);
+      ptr__ += IMC::serialize(rpm, ptr__);
+      ptr__ += IMC::serialize(thrust_duration, ptr__);
       ptr__ += IMC::serialize(custom, ptr__);
       return ptr__;
     }
@@ -158,6 +173,9 @@ namespace IMC
       bfr__ += IMC::deserialize(roll, bfr__, size__);
       bfr__ += IMC::deserialize(pitch, bfr__, size__);
       bfr__ += IMC::deserialize(yaw, bfr__, size__);
+      bfr__ += IMC::deserialize(pitch_thresh, bfr__, size__);
+      bfr__ += IMC::deserialize(rpm, bfr__, size__);
+      bfr__ += IMC::deserialize(thrust_duration, bfr__, size__);
       bfr__ += IMC::deserialize(custom, bfr__, size__);
       return bfr__ - start__;
     }
@@ -176,6 +194,9 @@ namespace IMC
       bfr__ += IMC::reverseDeserialize(roll, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(pitch, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(yaw, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(pitch_thresh, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(rpm, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(thrust_duration, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(custom, bfr__, size__);
       return bfr__ - start__;
     }
@@ -195,7 +216,7 @@ namespace IMC
     size_t
     getFixedSerializationSize(void) const
     {
-      return 52;
+      return 66;
     }
 
     size_t
@@ -217,6 +238,9 @@ namespace IMC
       IMC::toJSON(os__, "roll", roll, nindent__);
       IMC::toJSON(os__, "pitch", pitch, nindent__);
       IMC::toJSON(os__, "yaw", yaw, nindent__);
+      IMC::toJSON(os__, "pitch_thresh", pitch_thresh, nindent__);
+      IMC::toJSON(os__, "rpm", rpm, nindent__);
+      IMC::toJSON(os__, "thrust_duration", thrust_duration, nindent__);
       IMC::toJSON(os__, "custom", custom, nindent__);
     }
   };
