@@ -64,16 +64,10 @@ Before compiling Neptus, however, we need to synchronize with IMC
 
 ### Synchronize IMC with Neptus
 
-Clone the official LSTS/imcjava. Cloning the master branch is sufficient, but cloning the entire repository is also fine.
+Clone the official LSTS/imcjava:
 
 ```bash
 git clone https://github.com/LSTS/imcjava
-```
-
-alternatively
-
-```bash
-git clone --single-branch --branch master https://github.com/LSTS/imcjava
 ```
 
 Open the file settings.gradle. Line 10 should read
