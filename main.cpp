@@ -56,6 +56,7 @@ int main(int argc, char** argv ) {
     bottomUpSearch.z_units = 1;
     bottomUpSearch.speed = 1000;
     bottomUpSearch.speed_units = 1;
+    bottomUpSearch.thrust_duration = 2;
     bottomUpSearch.custom = "";
 
     // BottomUpSearch

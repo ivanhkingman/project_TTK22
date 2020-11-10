@@ -33,12 +33,12 @@ cd dune
 mkdir build
 cd build
 ln -s path_to_imc IMC
+cmake ..
 make imc
 ```
 
 Compile DUNE from build folder (may take some time)
 ```bash
-cmake ..
 make
 ```
 
