@@ -23,7 +23,7 @@ int main(int argc, char** argv ) {
     planSpecification.setSource(16652);
     planSpecification.setSourceEntity(44);
     planSpecification.setDestinationEntity(255);
-    planSpecification.plan_id = "cmd-lauv-xplore-1";
+    planSpecification.plan_id = "test_plan";
     planSpecification.start_man_id = "1";                       
 
     // Plan Maneuver

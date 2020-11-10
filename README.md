@@ -7,7 +7,7 @@ This project integrates a new maneuver in the existing LSTS software toolchain. 
 
 ### Prerequisites
 
-git, cmake, g++
+git, cmake, g++, ant
 
 
 ### DUNE
@@ -32,7 +32,7 @@ make
 Clone the LTS/IMC forked repository
 
 ```bash
-git clone https://github.com/ivanhkingman/imc
+git clone -single-branch --branch bottomUpSearch https://github.com/ivanhkingman/imc
 ```
 
 ### IMCJAVA
@@ -42,7 +42,6 @@ Clone the LSTS/IMCjava forked repository
 ```bash
 git clone https://github.com/ivanhkingman/imcjava
 ```
-Compile
 
 ### NEPTUS
 
@@ -59,9 +58,15 @@ fatal: The remote end hung up unexpectedly
 fatal: early EOF
 fatal: index-pack failed
 ```
-try using a different internet connection or a VPN
+try using a different internet connection or a VPN.
 
-Verify
+Compile Neptus with Ant
+
+```bash
+cd neptus
+ant
+```
+
 
 ## Usage
 
@@ -88,7 +93,7 @@ cd build
 ```
 Open Neptus GUI. This can be done from a new terminal by running
 ```bash
-cd path-to-neptus/develop
+cd path-to-neptus
 ./neptus.sh
 ```
 Then, open any Neptus console
