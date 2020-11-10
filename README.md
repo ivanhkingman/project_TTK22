@@ -138,6 +138,14 @@ Navigate back to the example and execute it by sending a goto message as part of
 cd path-to-project_TTK22/build
 ./example 2 bottomUpSearch 6001
 ```
+
+To test with goto maneuver, do:
+
+```bash
+cd path-to-project_TTK22/build
+./example 2 goto 6001
+```
+
 This sends the plan to the Neptus. If the plan does not appear, right click the plan view panel at click **Reload Panel**. Forward the plan to lauv-xplore-1 by selecting the vehicle, then selecting the plan, then clicking **Send Selected Plan** (blue arrow). Execute the plan by clicking **Start Plan** (green, runny man).
 
 Note: Not working at the moment, as vehicle goes into teleoperation mode :(
