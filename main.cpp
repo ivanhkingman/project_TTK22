@@ -117,7 +117,7 @@ int main(int argc, char** argv ) {
     DatagramSocket socket(6001, localhost, true, true);
     socket.sendTo(buffer, size, localhost);
 
-    std::cout << "Sent BottomUpSearch message to LAUV-XPLORE-1" << std::endl;
+    std::cout << "Sent " << maneuverString << "message to LAUV-XPLORE-1" << std::endl;
 
     return 0;
 }

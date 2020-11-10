@@ -90,7 +90,7 @@ cd imcjava
 ./gradlew dist
 ```
 
-Copy the generated library file **libimc-6.0.0.jar** located in `imcjava/dist/` and paste it into neptus library folder `neptus/lib/`
+Rename the generated library file **libimc-6.0.0.jar** to **libimc.jar** located in `imcjava/dist/` and paste it into neptus library folder `neptus/lib/`. This should replace the currently existing libimc.jar file
 
 Compile neptus
 
