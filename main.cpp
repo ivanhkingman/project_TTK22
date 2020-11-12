@@ -117,7 +117,7 @@ int main(int argc, char** argv ) {
     Packet::serialize(&planSpecification, (uint8_t *) buffer, size);
 
     char localhost[] = "127.0.0.1";    
-    DatagramSocket socket(6001, localhost, true, true);
+    DatagramSocket socket(portNumber, localhost, true, true);
     socket.sendTo(buffer, size, localhost);
 
     std::cout << "Sent " << maneuverString << " as part of a plan specification to 127.0.0.1 on port "<< portNumber << std::endl;

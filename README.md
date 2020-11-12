@@ -93,6 +93,16 @@ cd path_to_neptus
 ant
 ```
 
+### Generating parameters of the new DUNE task and update it on NEPTUS
+
+To generate parameters for lauv-xplore-1 in simulation profile, do the following from the DUNE build folder:
+
+```bash
+./dune -c lauv-xplore-1 -p Simulation -X path_to_neptus/conf/params
+cd path_to_neptus
+ant
+```
+
 
 ## Verify
 

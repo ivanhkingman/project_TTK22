@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: ebd615ab4b129fe913b51419fc76c3d2                            *
+// IMC XML MD5: 3e0ef1e2af33513c91b5a202d7c6d7a5                            *
 //***************************************************************************
 
 #ifndef IMC_MACROS_HPP_INCLUDED_
@@ -443,7 +443,7 @@
 #define IMC_ALIGNMENT (495)
 //! Station Keeping Extended Identifier.
 #define IMC_STATIONKEEPINGEXTENDED (496)
-//! Bottom Up Search Identifier.
+//! Bottom Up Search Maneuver Identifier.
 #define IMC_BOTTOMUPSEARCH (497)
 //! Magnetometer Maneuver Identifier.
 #define IMC_MAGNETOMETER (499)

@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: ebd615ab4b129fe913b51419fc76c3d2                            *
+// IMC XML MD5: 3e0ef1e2af33513c91b5a202d7c6d7a5                            *
 //***************************************************************************
 
 #ifndef IMC_BOTTOMUPSEARCH_HPP_INCLUDED_
@@ -41,7 +41,7 @@
 
 namespace IMC
 {
-  //! Bottom Up Search.
+  //! Bottom Up Search Maneuver.
   class BottomUpSearch: public Maneuver
   {
   public:

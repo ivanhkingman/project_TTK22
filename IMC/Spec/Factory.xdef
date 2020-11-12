@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: ebd615ab4b129fe913b51419fc76c3d2                            *
+// IMC XML MD5: 3e0ef1e2af33513c91b5a202d7c6d7a5                            *
 //***************************************************************************
 
 MESSAGE(1, EntityState, "17c4984e9f0df11f474cf81b79009e16")
@@ -230,7 +230,7 @@ MESSAGE(493, AutonomousSection, "a23da73281668e8d5833566cef7c464d")
 MESSAGE(494, FollowPoint, "e8babb52548537b8825ded9002d4c34a")
 MESSAGE(495, Alignment, "f729d2c01d0366a425eb18459aa42233")
 MESSAGE(496, StationKeepingExtended, "5ac97a603e5a75051e620751c33e8e0e")
-MESSAGE(497, BottomUpSearch, "7197b0e2e17806c2a29a9c1f3da0d02c")
+MESSAGE(497, BottomUpSearch, "38d079d85553196ebb19576d2c1240c6")
 MESSAGE(499, Magnetometer, "b84eb491cd399953b8d157d69d47933c")
 MESSAGE(500, VehicleState, "201163d2f68c534c16c6ddbdabd571ec")
 MESSAGE(501, VehicleCommand, "e788c9106893b91054fb6ffb00b77e20")
