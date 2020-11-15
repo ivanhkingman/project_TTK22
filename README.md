@@ -60,13 +60,6 @@ fatal: index-pack failed
 ```
 try using a different internet connection or a VPN.
 
-Compile Neptus with ant
-
-```bash
-cd path-to-neptus
-ant
-```
-
 
 ### Synchronize IMC with Neptus
 
@@ -94,14 +87,8 @@ cd imcjava
 
 Rename the generated library file **libimc-6.0.0.jar** to **libimc.jar** located in `imcjava/dist/` and paste it into neptus library folder `neptus/lib/`. This should replace the currently existing libimc.jar file
 
-Compile neptus
 
-```bash
-cd path_to_neptus
-ant
-```
-
-### Generating parameters of the new DUNE task and update it on NEPTUS (Currently not working, skip to Verify-step)
+### Generating parameters of the new DUNE task and update it on NEPTUS
 
 To generate parameters for lauv-xplore-1 in simulation profile, do the following from the DUNE build folder:
 
@@ -171,6 +158,6 @@ Documentation specific to this project includes the IMC message bottomUpSearch a
 The Maneuver Documentation and its relation to the rest of the DUNE library can be obtained by
 
 ```bash
-git clone https://github.com/ivanhkingman/maneuver-documentation/tree/master
+git clone https://github.com/ivanhkingman/maneuver-documentation
 ```
-Open any of the files using an internet browser.
+Open any of the HTML files using an internet browser.
