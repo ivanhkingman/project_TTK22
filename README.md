@@ -60,9 +60,17 @@ fatal: index-pack failed
 ```
 try using a different internet connection or a VPN.
 
-Before compiling Neptus, however, we need to synchronize with IMC
+Compile Neptus with ant
+
+```bash
+cd path-to-neptus
+ant
+```
+
 
 ### Synchronize IMC with Neptus
+
+Before compiling Neptus, however, we need to synchronize with IMC
 
 Clone the official LSTS/imcjava:
 
@@ -93,7 +101,7 @@ cd path_to_neptus
 ant
 ```
 
-### Generating parameters of the new DUNE task and update it on NEPTUS
+### Generating parameters of the new DUNE task and update it on NEPTUS (Currently not working, skip to Verify-step)
 
 To generate parameters for lauv-xplore-1 in simulation profile, do the following from the DUNE build folder:
 
@@ -142,23 +150,17 @@ cd path-to-neptus
 ```
 Then, open any Neptus console
 
-Navigate back to the example and execute it by sending a goto message as part of a plan on port 6001 (the port at which Neptus recieves UDP-messages)
+Navigate back to the example and execute it. Specify the port number at wich your instance of lauv-xplore-1 listens to UDP messages, by default 6002. This creates an IMC message plan database containing a single example maneuver of type bottomUpSearch, and sends it to the specified port. 
 
 ```bash
 cd path-to-project_TTK22/build
-./example 2 bottomUpSearch 6001
+./example 6002
 ```
+The plan is sent to the lauv-xplore-1, and can be started from the Neptus console.
 
-To test with goto maneuver, do:
+In the Neptus console. Select the lauv-xplore-1, right click the plan view panel at click **Reload Panel**, then right klick the plan **test_plan** and select **Get test_plan from lauv-xplore-1**. This is to bypass the fact that Neptus does not currently know of the IMC::Message for bottomUpSearch. The plan should now appear as red, meaning the plan as seen by Neptus differs from the version on the lauv-xplore-1. Execute the plan by clicking **Start Plan** (green, runny man). If a dialogue box pops up warning about the plan not being syncronized. Hit **Yes**.
 
-```bash
-cd path-to-project_TTK22/build
-./example 2 goto 6001
-```
-
-This sends the plan to the Neptus. If the plan does not appear, right click the plan view panel at click **Reload Panel**. Forward the plan to lauv-xplore-1 by selecting the vehicle, then selecting the plan, then clicking **Send Selected Plan** (blue arrow). Execute the plan by clicking **Start Plan** (green, runny man).
-
-Note: Not working at the moment, as vehicle goes into teleoperation mode :(
+The maneuver should now execute, and can be viewed in Neptus.
 
 ## Documentation
 

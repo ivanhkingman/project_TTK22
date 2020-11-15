@@ -9,13 +9,12 @@
 #define LAUVXPLORE1 (30)
 using namespace IMC;
 
-// This program creates an example planSpecification with a maneuver, specified by the input arguments.
+// This program creates an example planDB with a pre-defined bottomUpSearch maneuver
 // The plan specification is then sent locally on a port specified by the second input argument
 
-int main(int argc, char** argv ) {
+int main(int argc, char** argv) {
 
-    std::string maneuverString = std::string(argv[2]);
-    int portNumber = std::stoi(std::string(argv[3]));
+    int portNumber = std::stoi(std::string(argv[1]));
 
     // Plan specification                                      
     PlanSpecification planSpecification;
@@ -31,23 +30,6 @@ int main(int argc, char** argv ) {
     PlanManeuver planManeuver;
     planManeuver.maneuver_id = "1";
 
-    // Loiter
-    Loiter loiter;
-    loiter.timeout = 10000;
-    loiter.lat = 0.7188016469344056;
-    loiter.lon = -0.15194250254286037;
-    loiter.z = 3;
-    loiter.z_units = 1;
-    loiter.duration = 300;
-    loiter.speed = 1000;
-    loiter.speed_units = 1;
-    loiter.type = 1;
-    loiter.radius = 20;
-    loiter.length = 1;
-    loiter.bearing = 0;
-    loiter.direction = 1;
-    loiter.custom = "";
-
     // BottomUpSearch
     BottomUpSearch bottomUpSearch;
     bottomUpSearch.timeout = 10000;
@@ -57,70 +39,48 @@ int main(int argc, char** argv ) {
     bottomUpSearch.z_units = 1;
     bottomUpSearch.speed = 1000;
     bottomUpSearch.speed_units = 1;
-    bottomUpSearch.pitch_thresh = 1;
-    bottomUpSearch.thrust_duration = 2;
+    bottomUpSearch.desired_pitch = 1.57;
+    bottomUpSearch.surface_threshold = 0.2;
     bottomUpSearch.custom = "";
-
-    // BottomUpSearch
-    Goto goTo;
-    goTo.timeout = 10000;
-    goTo.lat = 0.7188016469344056;
-    goTo.lon = -0.15194250254286037;
-    goTo.z = 3;
-    goTo.z_units = 1;
-    goTo.speed = 1000;
-    goTo.speed_units = 1;
-    goTo.custom = "";
-
-    // Abort message
-    Abort abort;
-    abort.setDestination(30);
 
     // Set Entity Parameters
     SetEntityParameters setEntityParameters;
     setEntityParameters.name = "LBL";
-    
-    // Entity Parameter
     EntityParameter entityParameter;
     entityParameter.name = "Active";
     entityParameter.value = "false";
-    
-    //! Inline message-fields
     MessageList<EntityParameter> parameters;
     parameters.push_back(entityParameter);
     setEntityParameters.params = parameters;
 
+    // Add maneuver to plan specification
     InlineMessage<Maneuver> data;
-    data.set(loiter);
-    if (maneuverString == "goTo" || maneuverString == "goto") {
-        data.set(goTo);
-    }
-    if (maneuverString == "bottomUpSearch") {
-        data.set(bottomUpSearch);
-    }
-    if (maneuverString == "loiter") {
-        data.set(loiter);
-    }
+    data.set(bottomUpSearch);
     planManeuver.data = data;
-
     MessageList<Message> startActions;
     startActions.push_back(setEntityParameters);
     planManeuver.start_actions = startActions;
-
     MessageList<PlanManeuver> maneuvers;
     maneuvers.push_back(planManeuver);
     planSpecification.maneuvers = maneuvers;
 
-    // Message sending
-    int size = planSpecification.getSerializationSize();
+    // Add plan specification to a plan DB
+    PlanDB planDB;
+    planDB.type = 0;
+    planDB.op = 0;
+    planDB.plan_id = planSpecification.plan_id;
+    planDB.arg.set(planSpecification);
+
+    // Send the plan DB to a specified port
+    int size = planDB.getSerializationSize();
     char buffer[size];
-    Packet::serialize(&planSpecification, (uint8_t *) buffer, size);
+    Packet::serialize(&planDB, (uint8_t *) buffer, size);
 
     char localhost[] = "127.0.0.1";    
     DatagramSocket socket(portNumber, localhost, true, true);
     socket.sendTo(buffer, size, localhost);
 
-    std::cout << "Sent " << maneuverString << " as part of a plan specification to 127.0.0.1 on port "<< portNumber << std::endl;
+    std::cout << "Sent bottomUpSearch as part of a plan DB to 127.0.0.1 on port "<< portNumber << std::endl;
 
     return 0;
 }
