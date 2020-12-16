@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: ea521376f44f776f843b4b5374c01b9a                            *
+// IMC XML MD5: 06d0bcdb61bc5c098b62564e5a98a2a0                            *
 //***************************************************************************
 
 #ifndef IMC_CONSTANTS_HPP_INCLUDED_
@@ -26,9 +26,9 @@
 //! IMC version string.
 #define IMC_CONST_VERSION "5.4.11"
 //! Git repository information.
-#define IMC_CONST_GIT_INFO "2020-11-12 756587c  (HEAD -> bottomUpSearch, origin/bottomUpSearch)"
+#define IMC_CONST_GIT_INFO "2020-11-13 ee71a20  (HEAD -> bottomUpSearch, origin/bottomUpSearch)"
 //! MD5 sum of XML specification file.
-#define IMC_CONST_MD5 "ea521376f44f776f843b4b5374c01b9a"
+#define IMC_CONST_MD5 "06d0bcdb61bc5c098b62564e5a98a2a0"
 //! Synchronization number.
 #define IMC_CONST_SYNC 0xFE54
 //! Reversed synchronization number.

@@ -17,7 +17,7 @@
 //***************************************************************************
 // Automatically generated.                                                 *
 //***************************************************************************
-// IMC XML MD5: ea521376f44f776f843b4b5374c01b9a                            *
+// IMC XML MD5: 06d0bcdb61bc5c098b62564e5a98a2a0                            *
 //***************************************************************************
 
 #ifndef IMC_BOTTOMUPSEARCH_HPP_INCLUDED_
@@ -69,6 +69,12 @@ namespace IMC
     double desired_pitch;
     //! Surface Threshold.
     float surface_threshold;
+    //! Thrust Duration.
+    uint16_t thrust_duration;
+    //! Pitch Threshold.
+    double pitch_threshold;
+    //! Burst RPM.
+    float burst_rpm;
     //! Custom settings for maneuver.
     std::string custom;
 
@@ -111,6 +117,9 @@ namespace IMC
       yaw = 0;
       desired_pitch = 0;
       surface_threshold = 0;
+      thrust_duration = 0;
+      pitch_threshold = 0;
+      burst_rpm = 0;
       custom.clear();
     }
 
@@ -130,6 +139,9 @@ namespace IMC
       if (yaw != other__.yaw) return false;
       if (desired_pitch != other__.desired_pitch) return false;
       if (surface_threshold != other__.surface_threshold) return false;
+      if (thrust_duration != other__.thrust_duration) return false;
+      if (pitch_threshold != other__.pitch_threshold) return false;
+      if (burst_rpm != other__.burst_rpm) return false;
       if (custom != other__.custom) return false;
       return true;
     }
@@ -150,6 +162,9 @@ namespace IMC
       ptr__ += IMC::serialize(yaw, ptr__);
       ptr__ += IMC::serialize(desired_pitch, ptr__);
       ptr__ += IMC::serialize(surface_threshold, ptr__);
+      ptr__ += IMC::serialize(thrust_duration, ptr__);
+      ptr__ += IMC::serialize(pitch_threshold, ptr__);
+      ptr__ += IMC::serialize(burst_rpm, ptr__);
       ptr__ += IMC::serialize(custom, ptr__);
       return ptr__;
     }
@@ -170,6 +185,9 @@ namespace IMC
       bfr__ += IMC::deserialize(yaw, bfr__, size__);
       bfr__ += IMC::deserialize(desired_pitch, bfr__, size__);
       bfr__ += IMC::deserialize(surface_threshold, bfr__, size__);
+      bfr__ += IMC::deserialize(thrust_duration, bfr__, size__);
+      bfr__ += IMC::deserialize(pitch_threshold, bfr__, size__);
+      bfr__ += IMC::deserialize(burst_rpm, bfr__, size__);
       bfr__ += IMC::deserialize(custom, bfr__, size__);
       return bfr__ - start__;
     }
@@ -190,6 +208,9 @@ namespace IMC
       bfr__ += IMC::reverseDeserialize(yaw, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(desired_pitch, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(surface_threshold, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(thrust_duration, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(pitch_threshold, bfr__, size__);
+      bfr__ += IMC::reverseDeserialize(burst_rpm, bfr__, size__);
       bfr__ += IMC::reverseDeserialize(custom, bfr__, size__);
       return bfr__ - start__;
     }
@@ -209,7 +230,7 @@ namespace IMC
     size_t
     getFixedSerializationSize(void) const
     {
-      return 64;
+      return 78;
     }
 
     size_t
@@ -233,6 +254,9 @@ namespace IMC
       IMC::toJSON(os__, "yaw", yaw, nindent__);
       IMC::toJSON(os__, "desired_pitch", desired_pitch, nindent__);
       IMC::toJSON(os__, "surface_threshold", surface_threshold, nindent__);
+      IMC::toJSON(os__, "thrust_duration", thrust_duration, nindent__);
+      IMC::toJSON(os__, "pitch_threshold", pitch_threshold, nindent__);
+      IMC::toJSON(os__, "burst_rpm", burst_rpm, nindent__);
       IMC::toJSON(os__, "custom", custom, nindent__);
     }
   };

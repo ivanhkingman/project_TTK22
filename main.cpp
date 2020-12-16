@@ -41,6 +41,10 @@ int main(int argc, char** argv) {
     bottomUpSearch.speed_units = 1;
     bottomUpSearch.desired_pitch = 1.57;
     bottomUpSearch.surface_threshold = 0.2;
+    bottomUpSearch.pitch_threshold = 0.5;
+    bottomUpSearch.burst_rpm = 1000;
+    bottomUpSearch.thrust_duration = 2;
+    
     bottomUpSearch.custom = "";
 
     // Set Entity Parameters
